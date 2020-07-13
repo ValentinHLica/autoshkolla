@@ -13,12 +13,14 @@ module.exports = () => {
 
       try {
         // Encrypt Data
-        const text = JSON.stringify(JSON.parse(fs.readFileSync("./data.json"))); //text to be encrypted
+        const text = JSON.stringify(
+          JSON.parse(fs.readFileSync(path.join(__dirname, "./data.json")))
+        ); //text to be encrypted
 
         const cipher = crypto.createCipheriv(algorithm, key, iv);
         const encrypted =
           cipher.update(text, "utf8", "hex") + cipher.final("hex"); // encrypted text
-        fs.writeFileSync("./key.txt", encrypted);
+        fs.writeFileSync(path.join(__dirname, "./key.txt"), encrypted);
         // ====
 
         resolve(JSON.parse(decrypted));

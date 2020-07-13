@@ -23,10 +23,6 @@ if (fs.existsSync(path.join(__dirname, "./js/encrypt.js"))) {
       location.reload();
     });
 
-    document.querySelector(
-      ".copyright span"
-    ).textContent = new Date().getFullYear();
-
     // Select Random Questions
     const shuffleQuestions = (arr) => {
       const newArr = [];
@@ -89,15 +85,15 @@ if (fs.existsSync(path.join(__dirname, "./js/encrypt.js"))) {
 
       solvedTest.addEventListener(
         "click",
-        changeTestMode(1, helpTest, normalTest)
+        changeTestMode.bind(this, 1, helpTest, normalTest)
       );
       helpTest.addEventListener(
         "click",
-        changeTestMode(1, solvedTest, normalTest)
+        changeTestMode.bind(this, 2, solvedTest, normalTest)
       );
       normalTest.addEventListener(
         "click",
-        changeTestMode(1, helpTest, solvedTest)
+        changeTestMode.bind(this, 3, helpTest, solvedTest)
       );
 
       // Start the exam
@@ -147,7 +143,7 @@ if (fs.existsSync(path.join(__dirname, "./js/encrypt.js"))) {
         );
 
         // Question Count
-        infoWrapper.querySelector("question-count").textContent = `${
+        infoWrapper.querySelector(".question-count").textContent = `${
           index + 1
         }.`;
 
@@ -160,18 +156,17 @@ if (fs.existsSync(path.join(__dirname, "./js/encrypt.js"))) {
         }
 
         // Question Text
-        infoWrapper.querySelector("text").textContent = e.text;
+        infoWrapper.querySelector(".text").textContent = e.text;
 
-        const buttons = infoWrapper.querySelector("result-buttons");
-
-        if (e.userAnswer === true) {
-          const input = buttons.querySelector("input-one input");
-          input.checked = true;
-          input.disabled = true;
-        } else {
-          const input = buttons.querySelector("input-two input");
-          input.checked = true;
-          input.disabled = true;
+        const buttons = infoWrapper.querySelector(".result-buttons");
+        if (e.userAnswer !== undefined) {
+          if (e.userAnswer === true) {
+            const input = buttons.querySelector(".input-one input");
+            input.checked = true;
+          } else {
+            const input = buttons.querySelector(".input-two input");
+            input.checked = true;
+          }
         }
 
         li.append(infoWrapper);
@@ -346,6 +341,7 @@ if (fs.existsSync(path.join(__dirname, "./js/encrypt.js"))) {
       if (Questions[questionCounter].userAnswer === true) {
         correct.querySelector("input").checked = true;
       }
+
       correct.addEventListener("click", () => {
         Questions[questionCounter].userAnswer = true;
 

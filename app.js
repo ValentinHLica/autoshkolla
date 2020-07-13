@@ -21,15 +21,15 @@ const createMainWindow = () => {
 
   const menu = [];
 
-  const mainMenu = Menu.buildFromTemplate(menu);
-  Menu.setApplicationMenu(mainMenu);
+  // const mainMenu = Menu.buildFromTemplate(menu);
+  // Menu.setApplicationMenu(mainMenu);
 
   globalShortcut.register("Ctrl+R", () => {
     mainWindow.reload();
   });
 
   mainWindow.loadFile("./client/index.html");
-  mainWindow.setFullScreen(true);
+  // mainWindow.setFullScreen(true);
 };
 
 app.on("ready", () => {

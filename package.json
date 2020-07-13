@@ -1,0 +1,22 @@
+{
+  "name": "autoshkolla",
+  "version": "1.0.0",
+  "productName": "Autoshkolla",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon --exec electron .",
+    "package-win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --icon=assets/img/logo.ico --prune=false --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Autoshkolla\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^9.0.4",
+    "electron-packager": "^14.2.1",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "hddserial": "0.0.7"
+  }
+}

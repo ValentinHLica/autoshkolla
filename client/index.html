@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+      <div class="container">
+        <a class="navbar-brand font-weight-bold" href="#">
+          AutoShkolla
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto text-uppercase">
+            <li class="nav-item">
+              <button class="btn btn-primary new-test">Provim i ri</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="btn btn-primary mbyll-nav m-2" id="close">
+        Mbyll
+      </button>
+    </nav>
+
+    <template id="question-page-template">
+      <div class="question-page container">
+        <h1 class="mt-5 pt-4 category">Autoshkolla A1,A2,B1,B</h1>
+        <div class="text-white bg-primary rounded p-2 mb-2 mt-2">
+          <div class="row">
+            <div class="col-7">
+              Pyetja <span class="current"></span> nga <span class="all"></span>
+            </div>
+            <div class="col-5 text-right time-counter"></div>
+          </div>
+        </div>
+
+        <div class="question-info">
+          <h2 class="p-2 question-text"></h2>
+
+          <div class="row">
+            <div class="col-sm-4 foto mb-2">
+              <img src="" alt="Question Cover" class="border img-fluid" />
+            </div>
+
+            <div class="col-12 col-sm-8">
+              <div class="buttons pergjigjet pl-2 pr-2 pt-1 pb-1 mb-2">
+                <div class="pt-1 pb-1 sakte">
+                  <input type="radio" id="sakte" class="pointer" />
+                  <label for="sakte" class="pointer">Sakte</label>
+                </div>
+
+                <div class="pt-1 pb-1 gabim">
+                  <input type="radio" id="gabim" class="pointer" />
+                  <label for="gabim" class="pointer">Gabim</label>
+                </div>
+              </div>
+
+              <div class="show-answer">
+                Shfaq Pergjigjen
+              </div>
+
+              <div class="question-answer alert alert-primary">
+                Pergjigjja eshte: <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row container m-0 p-0">
+          <div class="col-12 col-sm-8 col-lg-9 pages">
+            <ul class="question-list"></ul>
+          </div>
+
+          <div class="col-12 col-sm-4 col-lg-3">
+            <div class="row">
+              <div class="col-6 pr-1">
+                <button
+                  class="btn btn-primary btn-back mb-2 paggination pointer prev disable-button"
+                >
+                  <img src="./img/arrow-left.svg" alt="Prev Arrow" />
+                </button>
+              </div>
+
+              <div class="col-6 pr-1">
+                <button
+                  class="btn btn-primary btn-back mb-2 paggination next pointer"
+                >
+                  <img src="./img/arrow-right.svg" alt="Next Arrow" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <template id="main-page-template">
+      <div class="main-page">
+        <h1>Autoshkolla</h1>
+
+        <ul class="test-mode">
+          <li class="solved-test">
+            <input type="radio" id="solved" class="pointer" />
+            <label for="solved" class="pointer">Test i zgjidhur</label>
+          </li>
+          <li class="help-test">
+            <input type="radio" id="help" class="pointer" />
+            <label for="help" class="pointer">Test me ndihme</label>
+          </li>
+          <li class="normal-test">
+            <input type="radio" id="normal" class="pointer" checked />
+            <label for="normal" class="pointer">Test normal</label>
+          </li>
+        </ul>
+
+        <button class="fillo-provimin btn btn-primary">Fillo provimin</button>
+      </div>
+    </template>
+
+    <template id="test-results-template">
+      <div class="test-results">
+        <div class="container">
+          <div class="alert alert-primary">
+            <div>
+              <p class="minutat">Ju mbaruat Testin ne: <span></span> min</p>
+              <p class="right-answer-result">
+                Pergjigje te sakta:
+                <span> </span>
+              </p>
+              <p class="wrong-answer-result">Gabim: <span></span></p>
+            </div>
+
+            <div class="final-results btn w-100"></div>
+          </div>
+
+          <ul class="results-list"></ul>
+        </div>
+      </div>
+    </template>
+
+    <template id="finish-test">
+      <div class="finish-test">
+        <div class="alert alert-primary">
+          <h1>Mbaro Testin</h1>
+          <div class="row">
+            <div class="col-6"><button class="btn btn-success">Po</button></div>
+            <div class="col-6"><button class="btn btn-danger">Jo</button></div>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <template id="info-wrapper-template">
+      <div class="info-wrapper my-2">
+        <p class="question-count"></p>
+        <img src="" alt="Question Cover" />
+        <p class="text m-0 w-75"></p>
+      </div>
+      <div class="result-buttons">
+        <div class="input-one">
+          <input type="radio" />
+          <p>Sakte</p>
+        </div>
+        <div class="input-two">
+          <input type="radio" />
+          <p>Gabim</p>
+        </div>
+      </div>
+    </template>
+
+    <div id="root"></div>
+
+    <p class="copyright text-center m-0 p-3">@<span></span> , Autoshkolla</p>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
